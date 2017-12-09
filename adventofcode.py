@@ -28,6 +28,18 @@ def giornoDue(spreedSheet):
             listaSomme.append(max(riga)-min(riga))
     return sum(listaSomme)
 
+
+def giornoQuattro(pathFile):
+    fileGiorno4=open("%s" %pathFile, "r") 
+    contatore=0
+    listaRiga=[]
+    for line in fileGiorno4: 
+        listaRiga=list(line.rstrip().split(" "))
+        if(len(list(listaRiga))==len(list(set(listaRiga)))):
+            contatore=contatore+1
+       # listaParole.extend(line.rstrip().split(" "))
+    return contatore    
+    
 def main():
     giornoUno("1122")
     lista=[[5,1,9,5]]
