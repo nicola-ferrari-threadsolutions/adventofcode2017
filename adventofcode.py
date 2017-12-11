@@ -40,13 +40,34 @@ def giornoQuattro(pathFile):
        # listaParole.extend(line.rstrip().split(" "))
     return contatore    
     
+    
+def giornoCinque(pathFile):
+    #carico il file in una lista
+    fileGiorno5=open("%s" %pathFile, "r") 
+    lst=[]
+    for line in fileGiorno5: 
+        lst.append(int(line.rstrip()))
+    # lista pronta
+    print ("inizio")   
+    pos=0
+    nMov=0
+    while pos<len(lst):
+        valoreAttuale=lst[pos]
+        lst[pos]+=1
+        pos+=valoreAttuale
+        nMov+=1
+    print ("fine") 
+    return nMov
+  
+  
 def main():
     giornoUno("1122")
     lista=[[5,1,9,5]]
     lista.append([7,5,3])
     lista.append([2,4,6,8])
     giornoDue(lista)    
-        
+    giornoCinque("/home/nicola/Studio/adventofcode2017/testoGiorno5.txt")
+    
         
 if __name__ == "__main__":
     main()
