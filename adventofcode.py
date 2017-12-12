@@ -1,12 +1,21 @@
 def giornoUno(stringa):
     listaNumeri=[]
-    contatore=0
-    for num in stringa:
+    for contatore,  num in enumerate(stringa):
         if(num==stringa[contatore-1]):
             listaNumeri.append(int(num))
-        contatore=contatore+1
     return sum(listaNumeri)
+
+def giornoUno_Due(stringa):
+    listaNumeri=[int(num )for num in stringa]
+    halfSize=int(len(listaNumeri)/2)
     
+    listaUno=listaNumeri[:halfSize]
+    listaDue=listaNumeri[halfSize:]
+    listaNumeri=[]
+    for index,  val in enumerate(listaUno):
+        if(val==listaDue[index]):
+            listaNumeri.append(val*2)
+    return sum(listaNumeri)
     
 def giornoDue(spreedSheet):
     '''
