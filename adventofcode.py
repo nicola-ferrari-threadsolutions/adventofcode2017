@@ -8,7 +8,6 @@ def giornoUno(stringa):
 def giornoUno_Due(stringa):
     listaNumeri=[int(num )for num in stringa]
     halfSize=int(len(listaNumeri)/2)
-    
     listaUno=listaNumeri[:halfSize]
     listaDue=listaNumeri[halfSize:]
     listaNumeri=[]
@@ -31,13 +30,23 @@ def giornoDue(spreedSheet):
     lista=[[5,1,9,5]]
     lista.append([7,5,3])
     lista.append([2,4,6,8])
+    
     '''
     listaSomme=[]
     for riga in spreedSheet:
             listaSomme.append(max(riga)-min(riga))
     return sum(listaSomme)
 
-
+def giornoDue_Due(spreedSheet):
+    listaSomme=[]
+    for riga in spreedSheet:
+            riga.sort(reverse=True)
+            for index,  val in enumerate(riga):
+                for valDue in riga[index+1:]:
+                    if(val%valDue==0):
+                        listaSomme.append(val/valDue)
+    return sum(listaSomme)
+    
 def giornoQuattro(pathFile):
     fileGiorno4=open("%s" %pathFile, "r") 
     contatore=0
