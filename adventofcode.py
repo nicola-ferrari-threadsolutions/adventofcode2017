@@ -76,7 +76,6 @@ def giornoQuattro_Due(pathFile):
             i=index+1
             while i<len(listaRiga):
                 valDue=listaRiga[i]
-                print (val,  valDue,  ''.join(sorted(valDue)))
                 if (val==valDue or val== ''.join(sorted(valDue))):
                     valid=False
                     break
@@ -103,7 +102,27 @@ def giornoCinque(pathFile):
     print ("fine") 
     return nMov
   
-  
+def giornoCinque_Due(pathFile):
+    #carico il file in una lista
+    fileGiorno5=open("%s" %pathFile, "r") 
+    lst=[]
+    for line in fileGiorno5: 
+        lst.append(int(line.rstrip()))
+    # lista pronta
+    print ("inizio")   
+    pos=0
+    nMov=0
+    while pos<len(lst):
+        valoreAttuale=lst[pos]
+        if valoreAttuale>=3:
+            lst[pos]-=1
+        else:
+            lst[pos]+=1
+        pos+=valoreAttuale
+        nMov+=1
+    print ("fine") 
+    return nMov  
+    
 def main():
     giornoUno("1122")
     lista=[[5,1,9,5]]
