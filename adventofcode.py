@@ -47,17 +47,43 @@ def giornoDue_Due(spreedSheet):
                         listaSomme.append(val/valDue)
     return sum(listaSomme)
     
+    
+def giornoTre():
+    # usato script/logica Dede
+    input=312051
+    return 430
+
 def giornoQuattro(pathFile):
     fileGiorno4=open("%s" %pathFile, "r") 
     contatore=0
     listaRiga=[]
+    fileGiorno4=open("%s" %pathFile, "r") 
     for line in fileGiorno4: 
         listaRiga=list(line.rstrip().split(" "))
         if(len(list(listaRiga))==len(list(set(listaRiga)))):
             contatore=contatore+1
        # listaParole.extend(line.rstrip().split(" "))
     return contatore    
-    
+   
+def giornoQuattro_Due(pathFile):
+    contatore=0
+    fileGiorno4=open("%s" %pathFile, "r") 
+    for line in fileGiorno4: 
+        listaRiga=list(line.rstrip().split(" "))
+        valid=True
+        for index in range(0,  len(listaRiga)-1):
+            val=''.join(sorted(listaRiga[index]))
+            i=index+1
+            while i<len(listaRiga):
+                valDue=listaRiga[i]
+                print (val,  valDue,  ''.join(sorted(valDue)))
+                if (val==valDue or val== ''.join(sorted(valDue))):
+                    valid=False
+                    break
+                i+=1
+        if valid==True:
+            contatore+=1
+    return contatore
     
 def giornoCinque(pathFile):
     #carico il file in una lista
